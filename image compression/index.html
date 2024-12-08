@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logo">
+        <div class="logo-text">PMship</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>图片压缩工具</h1>
+            <p>简单、快速的在线图片压缩服务</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="dropZone">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" width="48" height="48">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        <p>点击或拖拽图片到这里</p>
+                        <button class="upload-btn">选择图片</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" style="display: none;">
+                <div class="preview-container">
+                    <div class="preview-box">
+                        <h3>原始图片</h3>
+                        <div class="image-container">
+                            <img id="originalImage" alt="原始图片">
+                        </div>
+                        <div class="file-info">
+                            <span>文件大小：</span>
+                            <span id="originalSize">0 KB</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-box">
+                        <h3>压缩后</h3>
+                        <div class="image-container">
+                            <img id="compressedImage" alt="压缩后的图片">
+                        </div>
+                        <div class="file-info">
+                            <span>文件大小：</span>
+                            <span id="compressedSize">0 KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="advanced-options">
+                        <h4>压缩模式</h4>
+                        <div class="compression-mode">
+                            <button class="mode-btn active" data-mode="balanced">平衡模式</button>
+                            <button class="mode-btn" data-mode="quality">高质量模式</button>
+                            <button class="mode-btn" data-mode="size">最大压缩模式</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quality-control">
+                        <label for="quality">压缩质量：</label>
+                        <input type="range" id="quality" min="1" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    
+                    <button id="downloadBtn" class="download-btn">下载压缩后的图片</button>
+                </div>
+            </div>
+
+            <div class="modal" id="imageModal">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="关闭">×</button>
+                    <img id="modalImage" alt="预览图片">
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="quote">「工欲善其事，必先利其器」</div>
+            <div class="contact">
+                <svg class="wechat-icon" viewBox="0 0 24 24">
+                    <path d="M8.5,13.5A1.5,1.5 0 0,1 7,12A1.5,1.5 0 0,1 8.5,10.5A1.5,1.5 0 0,1 10,12A1.5,1.5 0 0,1 8.5,13.5M15.5,13.5A1.5,1.5 0 0,1 14,12A1.5,1.5 0 0,1 15.5,10.5A1.5,1.5 0 0,1 17,12A1.5,1.5 0 0,1 15.5,13.5M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                </svg>
+                <span>微信号：pmship</span>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
